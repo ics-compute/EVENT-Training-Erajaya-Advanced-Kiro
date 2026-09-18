@@ -19,21 +19,15 @@ pip install pytest black
 python -m pytest -q          # 9 passing tests
 ```
 
-Then open the folder in Kiro IDE and start with `labs/lab-01-steering.md`.
+Then open the folder in Kiro IDE and follow the lab instructions at
+<https://event.dimasutomo.com/>. This repo holds the configuration you work on;
+the step-by-step exercises live on the site.
 
 ## The labs
 
-| # | Lab | Module | Time |
-|---|---|---|---|
-| 01 | [Steering & Context](labs/lab-01-steering.md) | Steering & Context Management | 20 min |
-| 02 | [MCP Integration](labs/lab-02-mcp.md) | MCP Integration | 20 min |
-| 03 | [Agent Hooks](labs/lab-03-hooks.md) | Agent Hooks | 30 min |
-| 04 | [Custom Subagents](labs/lab-04-subagents.md) | Custom Subagents | 25 min |
-| 05 | [Agent Skills](labs/lab-05-skills.md) | Agent Skills | 30 min |
-| 06 | [Kiro Powers](labs/lab-06-powers.md) | Kiro Powers | 20 min |
-| 07 | [Requirement to FS](labs/lab-07-requirement-to-fs.md) | Requirement to FS | 40 min |
-| 08 | [Governance](labs/lab-08-governance.md) | Team Collaboration & Governance | 20 min |
-| 09 | [Do/Don'ts & Tokens](labs/lab-09-tokens.md) | Do/Don'ts + Token Tips | 20 min |
+The nine exercises are published at <https://event.dimasutomo.com/> — steering,
+MCP, hooks, subagents, skills, powers, requirement-to-FS, governance, and
+tokens, in that order. Roughly 3.5 hours end to end.
 
 ## What is in here
 
@@ -49,7 +43,6 @@ powers/        erajaya-platform: plugin.json + mcp.json + skills, import it in l
 scripts/       guard-shell.sh, the blocking hook's script
 src/orders/    the sample service
 tests/         pytest suite
-labs/          the exercises
 ```
 
 ## Ground rules
