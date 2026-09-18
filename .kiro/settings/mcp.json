@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "aws-knowledge": {
+      "url": "https://knowledge-mcp.global.api.aws",
+      "autoApprove": [
+        "search_documentation",
+        "read_documentation"
+      ],
+      "disabled": false
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "autoApprove": [],
+      "disabled": true
+    },
+    "postgres": {
+      "command": "uvx",
+      "args": [
+        "postgres-mcp",
+        "--access-mode=restricted"
+      ],
+      "env": {
+        "DATABASE_URI": "${LAB_DATABASE_URI}"
+      },
+      "autoApprove": [],
+      "disabledTools": [
+        "execute_sql"
+      ],
+      "disabled": true
+    }
+  }
+}

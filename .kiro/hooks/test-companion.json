@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "test-companion",
+      "description": "Keep the pytest suite in step with the service the agent edits.",
+      "trigger": "FileSave",
+      "matcher": "src/orders/.*\\.py$",
+      "action": {
+        "type": "agent",
+        "prompt": "The agent just changed a file under src/orders/. Update the matching test in tests/ so it covers the new behaviour. Do not touch unrelated tests and do not weaken an existing assertion to make it pass."
+      },
+      "timeout": 180,
+      "enabled": false
+    }
+  ]
+}

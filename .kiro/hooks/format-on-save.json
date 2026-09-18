@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "format-on-save",
+      "description": "Format Python the agent just wrote. Command action: no model call, no credits.",
+      "trigger": "FileSave",
+      "matcher": "src/.*\\.py$",
+      "action": {
+        "type": "command",
+        "command": "python -m black src/ tests/"
+      },
+      "timeout": 30,
+      "enabled": true
+    }
+  ]
+}

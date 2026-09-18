@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "guard-shell",
+      "description": "Block destructive shell commands before the tool runs. Exit non-zero = blocked.",
+      "trigger": "PreToolUse",
+      "matcher": "shell",
+      "action": {
+        "type": "command",
+        "command": "bash scripts/guard-shell.sh"
+      },
+      "timeout": 10,
+      "enabled": true
+    }
+  ]
+}

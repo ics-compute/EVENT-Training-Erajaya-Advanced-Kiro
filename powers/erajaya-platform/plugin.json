@@ -1,0 +1,17 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "erajaya-platform",
+  "version": "1.0.0",
+  "description": "Internal platform helper for the order service: runbooks, deploy conventions and the docs MCP server",
+  "author": {
+    "name": "ICS Managed Service"
+  },
+  "keywords": [
+    "runbook",
+    "deploy",
+    "order-service",
+    "platform",
+    "oncall"
+  ],
+  "license": "Apache-2.0"
+}

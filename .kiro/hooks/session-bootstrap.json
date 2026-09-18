@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "session-bootstrap",
+      "description": "Start every session knowing where the work stands.",
+      "trigger": "SessionStart",
+      "action": {
+        "type": "command",
+        "command": "git -c color.ui=false log --oneline -5 && git status --short"
+      },
+      "timeout": 20,
+      "enabled": true
+    }
+  ]
+}
