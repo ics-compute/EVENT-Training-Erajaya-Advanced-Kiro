@@ -20,14 +20,26 @@ python -m pytest -q          # 9 passing tests
 ```
 
 Then open the folder in Kiro IDE and follow the lab instructions at
-<https://event.dimasutomo.com/>. This repo holds the configuration you work on;
-the step-by-step exercises live on the site.
+<https://kiro-eventerajaya.icscompute.com/>. This repo holds the configuration
+you work on; the step-by-step exercises live on the site.
 
 ## The labs
 
-The nine exercises are published at <https://event.dimasutomo.com/> — steering,
-MCP, hooks, subagents, skills, powers, requirement-to-FS, governance, and
-tokens, in that order. Roughly 3.5 hours end to end.
+The ten exercises are published at <https://kiro-eventerajaya.icscompute.com/>,
+numbered in running order:
+
+1. Requirement to Functional Spec
+2. Kiro IDE and CLI
+3. Steering
+4. MCP Integration
+5. Skills
+6. Powers (import `powers/erajaya-platform/`)
+7. Hooks
+8. Subagents
+9. Governance (discussion-led)
+10. Tokens and context
+
+Roughly 6.5 hours end to end, split across five sessions.
 
 ## What is in here
 
