@@ -1,7 +1,7 @@
 # Requirements — Order Tracking
 
 Status: approved. This is the file a Kiro spec session writes, kept here so
-lab 01 has something to compare against. Acceptance criteria are in EARS
+lab 03 has something to compare against. Acceptance criteria are in EARS
 notation: one trigger, one behaviour, one sentence.
 
 ## Requirement 1 — Place an order

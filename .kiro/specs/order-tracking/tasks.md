@@ -12,7 +12,7 @@
   - Requirements: 4.1, 4.2, 4.3
 - [ ] 6. HTTP layer under `src/api/` following `api-conventions.md`
   - Requirements: 1.1, 2.1, 3.1, 4.1
-  - This is the task lab 01 hands to Kiro.
+  - This is the task lab 03 hands to Kiro.
 - [ ] 7. Persistence behind the existing service interface
   - Blocked on design open question 2.
 
