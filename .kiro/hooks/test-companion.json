@@ -4,7 +4,7 @@
     {
       "name": "test-companion",
       "description": "Keep the pytest suite in step with the service the agent edits.",
-      "trigger": "FileSave",
+      "trigger": "PostFileSave",
       "matcher": "src/(orders|loyalty)/.*\\.py$",
       "action": {
         "type": "agent",

@@ -4,7 +4,7 @@
     {
       "name": "format-on-save",
       "description": "Format Python the agent just wrote. Command action: no model call, no credits.",
-      "trigger": "FileSave",
+      "trigger": "PostFileSave",
       "matcher": "src/.*\\.py$",
       "action": {
         "type": "command",
