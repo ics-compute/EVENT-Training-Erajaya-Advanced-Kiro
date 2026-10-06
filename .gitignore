@@ -6,6 +6,10 @@ venv/
 .DS_Store
 ._*
 
-# never commit real endpoints or secrets - mcp.json uses ${ENV_VAR} on purpose
+# never commit real endpoints or secrets
 .env
 *.local.json
+
+# lab 04 scratch database - rebuild it any time with ./scripts/lab04-db-seed.py
+.lab/
+

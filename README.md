@@ -70,29 +70,33 @@ Lab 04 asks Kiro to describe a real `orders` table over MCP, so one has to
 exist:
 
 ```bash
-./scripts/lab04-db-up.sh                 # docker, recommended
-./scripts/lab04-db-up.sh --local         # you already run Postgres on :5432
-export LAB_DATABASE_URI='postgresql://labs:labs@localhost:5432/orders'
+./scripts/lab04-db-seed.py
 ```
 
-Export that variable **in the shell you launch Kiro from** — Kiro inherits the
-environment of the process that started it, and exporting it in another
-terminal is the usual reason the MCP server sits there red with no
-explanation. The seed deliberately has no `customer_points` table; proposing
-one is the lab.
+That writes a SQLite file to `.lab/orders.db` using nothing but the Python
+standard library. No Docker, no server, no port, no connection string, and
+nothing to export — `mcp.json` already points the SQLite MCP server at that
+path. Teardown is `rm -rf .lab`.
+
+Run it from the repo root. The MCP server resolves `.lab/orders.db` relative
+to the directory Kiro was started in, and it **creates an empty database when
+the path is wrong** rather than failing loudly — so if `list_tables` comes
+back with nothing, you are looking at a different file, not a broken server.
+
+The seed deliberately has no `customer_points` table; proposing one is the lab.
 
 ## What is in here
 
 ```
 .kiro/
   steering/    six files: always, fileMatch, auto, manual - one of each to compare
-  settings/    mcp.json - three servers, secrets by ${ENV_VAR} only
+  settings/    mcp.json - three servers, two of them shipped disabled
   hooks/       command, agent, blocking and session hooks
   agents/      code-reviewer (JSON, read-only) and test-writer (Markdown)
   skills/      deploy-checklist and api-endpoint, both with references/
   specs/       order-tracking: requirements (EARS), design, tasks
 powers/        erajaya-platform: plugin.json + mcp.json + skills, import it in lab 06
-scripts/       guard-shell.sh (the blocking hook) and lab04-db-up.sh + sql/ seed
+scripts/       guard-shell.sh (the blocking hook) and lab04-db-seed.py + sql/ seed
 src/orders/    the sample service, finished - your reference for shape
 src/loyalty/   empty on purpose - you fill this in lab 07
 tests/         pytest suite
@@ -100,8 +104,9 @@ tests/         pytest suite
 
 ## Ground rules
 
-- **No credentials, ever.** `mcp.json` references `${LAB_DATABASE_URI}`; it
-  never holds a value. A committed key is a leaked key, including in a lab.
+- **No credentials, ever.** Nothing in `.kiro/` holds a secret, and the lab 04
+  database is a throwaway local file for exactly that reason. A committed key
+  is a leaked key, including in a lab.
 - **The guard hook is a teaching aid,** not a security control. It blocks a
   list of obvious patterns and nothing more.
 - Servers that can write or destroy are shipped `"disabled": true`. Turn them

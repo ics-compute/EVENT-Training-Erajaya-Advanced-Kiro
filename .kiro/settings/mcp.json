@@ -17,18 +17,17 @@
       "autoApprove": [],
       "disabled": true
     },
-    "postgres": {
+    "sqlite": {
       "command": "uvx",
       "args": [
-        "postgres-mcp",
-        "--access-mode=restricted"
+        "mcp-server-sqlite",
+        "--db-path",
+        ".lab/orders.db"
       ],
-      "env": {
-        "DATABASE_URI": "${LAB_DATABASE_URI}"
-      },
       "autoApprove": [],
       "disabledTools": [
-        "execute_sql"
+        "write_query",
+        "create_table"
       ],
       "disabled": true
     }
