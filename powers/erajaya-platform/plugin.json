@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "erajaya-platform",
   "version": "1.0.0",
-  "description": "Internal platform helper for the order service: runbooks, deploy conventions and the docs MCP server",
+  "description": "Internal platform helper for the order and loyalty-points services: triage runbooks, deploy conventions and the docs MCP server",
   "author": {
     "name": "ICS Managed Service"
   },

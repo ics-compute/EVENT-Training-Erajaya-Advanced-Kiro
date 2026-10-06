@@ -12,7 +12,7 @@ on purpose — the subject of the labs is Kiro, not the domain.
 ## Getting started
 
 ```bash
-git clone <this repo>
+git clone https://github.com/ics-compute/EVENT-Training-Erajaya-Advanced-Kiro.git kiro-advanced-labs
 cd kiro-advanced-labs
 python -m venv .venv && source .venv/bin/activate
 pip install pytest black
@@ -41,6 +41,46 @@ numbered in running order:
 
 Roughly 6.5 hours end to end, split across five sessions.
 
+### One feature, ten labs
+
+The labs are not ten unrelated exercises. They build **one** feature end to
+end: **Loyalty Points for Erajaya customers** — earn points on every purchase,
+see the balance, redeem at checkout. Each lab's output is the next lab's input:
+
+| Lab | You build | Hands off |
+|---|---|---|
+| 01 | `.kiro/specs/loyalty-points/` (requirements, design, tasks) | the spec everything else cites |
+| 02 | open that spec from both IDE and CLI | proof both surfaces share `.kiro/` |
+| 03 | steering that auto-attaches to the loyalty endpoint | conventions ready for coding |
+| 04 | a proposed `customer_points` and `points_ledger` schema | storage model for the skill |
+| 05 | a `redeem-points` skill with `references/` | the operational playbook |
+| 06 | a `points-balance-check` power skill | cross-repo platform knowledge |
+| 07 | `src/loyalty/service.py` plus hook-generated tests | the actual code |
+| 08 | a review pass and parallel edge-case tests | reviewed, covered code |
+| 09 | a loyalty-points PR checklist | the merge decision |
+| 10 | `/context` and `/compact` on the day's chat | context discipline |
+
+So **do not pre-write the loyalty code.** `src/loyalty/` ships as an empty
+package on purpose — filling it is lab 07. `src/orders/` is the finished
+reference to copy the shape from.
+
+### Lab 04 needs a database
+
+Lab 04 asks Kiro to describe a real `orders` table over MCP, so one has to
+exist:
+
+```bash
+./scripts/lab04-db-up.sh                 # docker, recommended
+./scripts/lab04-db-up.sh --local         # you already run Postgres on :5432
+export LAB_DATABASE_URI='postgresql://labs:labs@localhost:5432/orders'
+```
+
+Export that variable **in the shell you launch Kiro from** — Kiro inherits the
+environment of the process that started it, and exporting it in another
+terminal is the usual reason the MCP server sits there red with no
+explanation. The seed deliberately has no `customer_points` table; proposing
+one is the lab.
+
 ## What is in here
 
 ```
@@ -52,8 +92,9 @@ Roughly 6.5 hours end to end, split across five sessions.
   skills/      deploy-checklist and api-endpoint, both with references/
   specs/       order-tracking: requirements (EARS), design, tasks
 powers/        erajaya-platform: plugin.json + mcp.json + skills, import it in lab 06
-scripts/       guard-shell.sh, the blocking hook's script
-src/orders/    the sample service
+scripts/       guard-shell.sh (the blocking hook) and lab04-db-up.sh + sql/ seed
+src/orders/    the sample service, finished - your reference for shape
+src/loyalty/   empty on purpose - you fill this in lab 07
 tests/         pytest suite
 ```
 

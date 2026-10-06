@@ -10,6 +10,12 @@ resources:
 
 You write tests, not production code.
 
+In lab 08 you repoint the second resource above at
+`.kiro/specs/loyalty-points/requirements.md` - the spec you wrote in lab 01 -
+so this agent starts warm on the loyalty feature instead of order tracking.
+It ships pointing at `order-tracking` because that is the only spec that
+exists in a fresh clone.
+
 Working rules:
 
 1. Read the requirement before the implementation. Every acceptance criterion

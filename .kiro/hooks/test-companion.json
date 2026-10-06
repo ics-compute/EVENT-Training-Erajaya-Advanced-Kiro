@@ -5,10 +5,10 @@
       "name": "test-companion",
       "description": "Keep the pytest suite in step with the service the agent edits.",
       "trigger": "FileSave",
-      "matcher": "src/orders/.*\\.py$",
+      "matcher": "src/(orders|loyalty)/.*\\.py$",
       "action": {
         "type": "agent",
-        "prompt": "The agent just changed a file under src/orders/. Update the matching test in tests/ so it covers the new behaviour. Do not touch unrelated tests and do not weaken an existing assertion to make it pass."
+        "prompt": "The agent just changed a file under src/. Update or create the matching test in tests/ so it covers the new behaviour - changes under src/orders/ belong in tests/test_service.py, changes under src/loyalty/ belong in tests/test_loyalty.py. Create the test file if it does not exist yet. Do not touch unrelated tests and do not weaken an existing assertion to make it pass."
       },
       "timeout": 180,
       "enabled": false
